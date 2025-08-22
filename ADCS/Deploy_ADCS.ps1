@@ -28,7 +28,6 @@ Invoke-InstallADCS -CAName 'RootCA'
     Install-AdcsCertificationAuthority -CAType "EnterpriseRootCA" -CACommonName $CAName -KeyLength 4096 -HashAlgorithmName SHA512 -Confirm
     Install-AdcsWebEnrollment -Confirm
 
-    # Restart services
-    Restart-Service certsvc
-    Restart-Service w3svc
+    # Restart server to finalize installation
+    Restart-Computer
 }
